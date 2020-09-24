@@ -1,6 +1,7 @@
 
 public class Lab3
 {
+    //test
     public static void main(String[] args) {
         testSolveMaze2();
 }
