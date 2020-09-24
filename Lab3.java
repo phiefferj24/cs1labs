@@ -3,7 +3,7 @@ public class Lab3
 {
     //test 2
     public static void main(String[] args) {
-        testSolveMaze2();
+        testSort2();
 }
     public static void turnRight()
 {
@@ -40,7 +40,7 @@ public class Lab3
     public static void testCompleteBars1()
 {
         Robot.load("bars1.txt");
-        Robot.setDelay(25);
+        Robot.setDelay(5);
         completeBars();
 }
 
@@ -65,14 +65,14 @@ public class Lab3
     public static void testCombinePiles1()
 {
         Robot.load("piles1.txt");
-        Robot.setDelay(25);
+        Robot.setDelay(5);
         combinePiles();
 }
 
     public static void testCombinePiles2()
 {
         Robot.load("piles2.txt");
-        Robot.setDelay(25);
+        Robot.setDelay(5);
         combinePiles();
 }
 
@@ -86,7 +86,7 @@ public class Lab3
     public static void testConnectDots1()
 {
         Robot.load("dots1.txt");
-        Robot.setDelay(25);
+        Robot.setDelay(5);
         connectDots();
 }
 
@@ -172,25 +172,29 @@ public class Lab3
     }
     public static void testSolveMaze1() {
         Robot.load("maze1.txt");
-        Robot.setDelay(25);
+        Robot.setDelay(5);
         solveMaze();
     }
     public static void testSolveMaze2() {
         Robot.load("maze2.txt");
-        Robot.setDelay(25);
+        Robot.setDelay(5);
         solveMaze();
     }
     public static void testSort1() {
         Robot.load("sort1.txt");
-        Robot.setDelay(25);
+        Robot.setDelay(5);
         sort();
     }
     public static void testSort2() {
         Robot.load("sort2.txt");
-        Robot.setDelay(25);
+        Robot.setDelay(5);
         sort();
     }
     public static void sort() {
+        /*while(Robot.frontIsClear()) Robot.move();
+        turnRight();
+        while(Robot.frontIsClear()) Robot.move();
+        turnRight();*/ //sorts to other side when uncommented
         sortRow();
         while(nextRow()) sortRow();
         sortRow();
