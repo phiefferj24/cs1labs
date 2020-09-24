@@ -1,0 +1,240 @@
+
+public class Clock {
+	public static void showTime() {
+		Robot.load("clock.txt");
+		Robot.setDelay(20);
+		//tell time here
+		writeOne();
+		nextNumber();
+		writeTwo();
+		nextNumber();
+		writeColon();
+		writeThree();
+		nextNumber();
+		writeFour();
+	}
+	
+	public static void writeOne() {
+		Lab1.turnRight();
+		moveTwo();
+		Robot.turnLeft();
+		Robot.makeDark();
+		darkenFour();
+		turnAround();
+		moveFour();
+		Lab1.turnRight();
+		moveTwo();
+		Lab1.turnRight();
+	}
+	public static void writeTwo() {
+		Lab1.turnRight();
+		Robot.makeDark();
+		darkenTwo();
+		turnAround();
+		moveTwo();
+		Lab1.turnRight();
+		darkenTwo();
+		Lab1.turnRight();
+		darkenTwo();
+		Robot.turnLeft();
+		darkenTwo();
+		Robot.turnLeft();
+		darkenTwo();
+		Robot.turnLeft();
+		moveFour();
+		turnAround();
+		
+	}
+	public static void writeThree() {
+		Lab1.turnRight();
+		Robot.makeDark();
+		darkenTwo();
+		Robot.turnLeft();
+		darkenTwo();
+		Robot.turnLeft();
+		darkenTwo();
+		turnAround();
+		moveTwo();
+		Robot.turnLeft();
+		darkenTwo();
+		Robot.turnLeft();
+		darkenTwo();
+		Robot.turnLeft();
+		moveFour();
+		turnAround();
+	}
+	public static void writeFour() {
+		Lab1.turnRight();
+		moveTwo();
+		Robot.turnLeft();
+		Robot.makeDark();
+		darkenFour();
+		turnAround();
+		moveTwo();
+		Lab1.turnRight();
+		darkenTwo();
+		Lab1.turnRight();
+		darkenTwo();
+		turnAround();
+		moveFour();
+		turnAround();
+	}
+	public static void writeFive() {
+		Lab1.turnRight();
+		Robot.makeDark();
+		darkenTwo();
+		Robot.turnLeft();
+		darkenTwo();
+		Robot.turnLeft();
+		darkenTwo();
+		Lab1.turnRight();
+		darkenTwo();
+		Lab1.turnRight();
+		darkenTwo();
+		turnAround();
+		moveTwo();
+		Robot.turnLeft();
+		moveFour();
+		turnAround();
+	}
+	public static void writeSix() {
+		Robot.makeDark();
+		darkenTwo();
+		turnAround();
+		moveTwo();
+		Robot.turnLeft();
+		darkenTwo();
+		Robot.turnLeft();
+		darkenTwo();
+		Robot.turnLeft();
+		Robot.move();
+		Robot.makeDark();
+		Robot.move();
+		Lab1.turnRight();
+		darkenTwo();
+		Lab1.turnRight();
+		darkenTwo();
+		turnAround();
+		moveTwo();
+		Robot.turnLeft();
+		moveFour();
+		turnAround();
+	}
+	public static void writeSeven() {
+		Lab1.turnRight();
+		moveTwo();
+		Robot.turnLeft();
+		Robot.makeDark();
+		darkenFour();
+		Robot.turnLeft();
+		darkenTwo();
+		Robot.turnLeft();
+		moveFour();
+		turnAround();
+	}
+	public static void writeEight() {
+		Robot.makeDark();
+		darkenTwo();
+		turnAround();
+		moveTwo();
+		Robot.turnLeft();
+		darkenTwo();
+		Robot.turnLeft();
+		darkenTwo();
+		Robot.turnLeft();
+		Robot.move();
+		Robot.makeDark();
+		Robot.move();
+		Lab1.turnRight();
+		darkenTwo();
+		Lab1.turnRight();
+		darkenTwo();
+		Lab1.turnRight();
+		Robot.move();
+		Robot.makeDark();
+		Robot.move();
+		moveTwo();
+		Lab1.turnRight();
+		moveTwo();
+		Lab1.turnRight();
+	}
+	public static void writeNine() {
+		Lab1.turnRight();
+		Robot.makeDark();
+		darkenTwo();
+		Robot.turnLeft();
+		darkenTwo();
+		Robot.turnLeft();
+		darkenTwo();
+		Lab1.turnRight();
+		darkenTwo();
+		Lab1.turnRight();
+		darkenTwo();
+		Lab1.turnRight();
+		Robot.move();
+		Robot.makeDark();
+		Robot.move();
+		moveTwo();
+		Lab1.turnRight();
+		moveTwo();
+		Lab1.turnRight();
+	}
+	public static void writeZero() {
+		Lab1.turnRight();
+		darkenTwo();
+		Robot.turnLeft();
+		darkenFour();
+		Robot.turnLeft();
+		darkenTwo();
+		Robot.turnLeft();
+		darkenFour();
+		turnAround();
+	}
+	public static void writeColon() {
+		Robot.move();
+		Robot.makeDark();
+		moveTwo();
+		Robot.makeDark();
+		turnAround();
+		moveTwo();
+		Robot.move();
+		Robot.turnLeft();
+		moveTwo();
+		Robot.turnLeft();
+	}
+	public static void nextNumber() {
+		Lab1.turnRight();
+		moveFour();
+		Robot.turnLeft();
+	}
+	public static void moveFour() {
+		Robot.move();
+		Robot.move();
+		Robot.move();
+		Robot.move();
+	}
+	public static void moveTwo() {
+		Robot.move();
+		Robot.move();
+	}
+	public static void darkenFour() {
+		Robot.move();
+		Robot.makeDark();
+		Robot.move();
+		Robot.makeDark();
+		Robot.move();
+		Robot.makeDark();
+		Robot.move();
+		Robot.makeDark();
+	}
+	public static void darkenTwo() {
+		Robot.move();
+		Robot.makeDark();
+		Robot.move();
+		Robot.makeDark();
+	}
+	public static void turnAround() {
+		Robot.turnLeft();
+		Robot.turnLeft();
+	}
+}
