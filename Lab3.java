@@ -3,7 +3,10 @@ public class Lab3
 {
     //test 2
     public static void main(String[] args) {
-        testSort2();
+        int delay = 2;
+        int amt = 5;
+        for(int i = 0 ; i < amt; i++)
+        testSort(MapMaker.makeFile(), delay);
 }
     public static void turnRight()
 {
@@ -188,6 +191,11 @@ public class Lab3
     public static void testSort2() {
         Robot.load("sort2.txt");
         Robot.setDelay(5);
+        sort();
+    }
+    public static void testSort(String filename, int delay) {
+        Robot.load("/Users/jimphieffer/Downloads/cs1lab3/" + filename);
+        Robot.setDelay(delay);
         sort();
     }
     public static void sort() {
