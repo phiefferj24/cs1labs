@@ -1,12 +1,13 @@
+import java.io.IOException;
 
-public class Lab3
-{
-    //test 2
-    public static void main(String[] args) {
-        int delay = 2;
+public class Lab3 {
+    // test 2
+    public static void main(String[] args) throws IOException {
+        testSort2();
+        /*int delay = 2;
         int amt = 5;
         for(int i = 0 ; i < amt; i++)
-        testSort(MapMaker.makeFile(), delay);
+            testSort(MapMaker.makeFile(), delay);*/
 }
     public static void turnRight()
 {
@@ -154,23 +155,16 @@ public class Lab3
         return b;
 }
     public static void solveMaze() {
-        boolean turned = false;
         while(!Robot.onDark()) {
             while(Robot.frontIsClear()) {
                 Robot.move();
-                if(!turned) {
-                    turned = true;
-                    Robot.turnLeft();
-                    if(Robot.frontIsClear()) break;
-                    turnAround();
-                    if(Robot.frontIsClear()) break;
-                    Robot.turnLeft();
-                }
+                Robot.turnLeft();
+                if(Robot.frontIsClear()) break;
+                turnRight();
             }
             if(!Robot.frontIsClear()) Robot.turnLeft();
             if(!Robot.frontIsClear()) turnAround();
             if(!Robot.frontIsClear()) turnRight();
-            turned = false;
         }
     }
     public static void testSolveMaze1() {
@@ -189,7 +183,7 @@ public class Lab3
         sort();
     }
     public static void testSort2() {
-        Robot.load("sort2.txt");
+        Robot.load("sort3.txt");
         Robot.setDelay(5);
         sort();
     }
@@ -199,10 +193,6 @@ public class Lab3
         sort();
     }
     public static void sort() {
-        /*while(Robot.frontIsClear()) Robot.move();
-        turnRight();
-        while(Robot.frontIsClear()) Robot.move();
-        turnRight();*/ //sorts to other side when uncommented
         sortRow();
         while(nextRow()) sortRow();
         sortRow();
