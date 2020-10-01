@@ -108,6 +108,7 @@ public class Robot
         int cellSize = 500 / Math.max(grid.length, grid[0].length);
         canvas.setPreferredSize(new Dimension(grid[0].length * cellSize, grid.length * cellSize));
         frame.pack();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         canvas.repaint();
         pause(1);
