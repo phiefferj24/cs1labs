@@ -245,6 +245,7 @@ public class Robot
 
     private static class RobotComponent extends JComponent
     {
+        static final long serialVersionUID = 1L;
         public void paintComponent(Graphics g)
         {
             int cellSize = Math.min(getWidth() / grid[0].length, getHeight() / grid.length);

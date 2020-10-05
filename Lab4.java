@@ -1,11 +1,14 @@
+
 //Be sure to have the Google document open with instructions
 //while you work on the lab!
 
 public class Lab4
 {
     public static void main(String[] args) {
-        loadTest2();
-        runTimes();
+        loadTest1();
+        FastLab4.setTowerWidth();
+        moveTower();
+        System.out.println(Robot.getNumSteps());
     }
     public static void loadTest1()
     {
@@ -122,7 +125,7 @@ public class Lab4
         int iter = 0;
         int numTowers = 0;
         while (iter < 3) {
-            nextBase();
+            FastLab4.newNextBase();
             if(Robot.onDark()) numTowers++;
             iter++;
         }
@@ -169,7 +172,7 @@ public class Lab4
     //post:  on base with smallest disk
     public static void findSmallest()
     {
-        while(topWidth() != 1) nextBase();
+        while(topWidth() != 1) FastLab4.newNextBase();
     }
 
     //pre:   on a base
@@ -178,7 +181,7 @@ public class Lab4
     {
         findSmallest();
         removeTop();
-        nextBase();
+        FastLab4.newNextBase();
         moveToLight();
         Robot.makeDark();
         turnAround();
@@ -193,7 +196,7 @@ public class Lab4
     {
         int i = topWidth();
         removeTop();
-        nextBase();
+        FastLab4.newNextBase();
         moveToLight();
         turnRight();
         int j = i;
@@ -220,8 +223,8 @@ public class Lab4
     {
         int i = topWidth();
         removeTop();
-        nextBase();
-        nextBase();
+        FastLab4.newNextBase();
+        FastLab4.newNextBase();
         moveToLight();
         turnRight();
         int j = i;
@@ -247,21 +250,21 @@ public class Lab4
     public static void moveNonSmallest()
     {
         int t1 = topWidth();
-        nextBase();
+        FastLab4.newNextBase();
         int t2 = topWidth();
-        nextBase();
+        FastLab4.newNextBase();
         int t3 = topWidth();
-        nextBase();
+        FastLab4.newNextBase();
         if(t1 > 1 && t1 < 9999) {
             if(t2 > t1) moveTopToNextBase();
             else if (t3 > t1) moveTopToPreviousBase();
         }
-        nextBase();
+        FastLab4.newNextBase();
         if(t2 > 1 && t2 < 9999) {;
             if(t3 > t2) moveTopToNextBase();
             else if (t1 > t2) moveTopToPreviousBase();
         }
-        nextBase();
+        FastLab4.newNextBase();
         if(t3 > 1 && t3 < 9999) {
             if(t1 > t3) moveTopToNextBase();
             else if (t2 > t3) moveTopToPreviousBase();
@@ -274,8 +277,8 @@ public class Lab4
     {
         int n = 0;
         while(n != 1) {
-            moveSmallest();
-            moveNonSmallest();
+            FastLab4.moveSmallest2();
+            FastLab4.moveNonSmallest2();
             n = numTowers();
         }
     }
@@ -287,7 +290,7 @@ public class Lab4
     }
     public static void runTimes() {
         int x = 1;
-        while(x < 11) {
+        while(x < 3) {
             Robot.load("t"+x+".txt");
             System.out.println(x+" : " + towerTimer());
             x++;
