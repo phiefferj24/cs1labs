@@ -4,8 +4,7 @@
 public class Lab4
 {
     public static void main(String[] args) {
-        loadTest2();
-        runTimes();
+        System.out.println(Add.addAll(35));
     }
     public static void loadTest1()
     {
