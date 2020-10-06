@@ -294,8 +294,8 @@ public class Lab4
         }
     }
     public static void compareTimes() {
-        System.out.println("Comparing...");
-        System.out.println("Beginning test 1...");
+        System.out.println("Comparing...\n");
+        System.out.println("Beginning test 1...\n-----------------");
         Robot.load("t5.txt");
         Robot.setDelay(1);
         long startTime = System.currentTimeMillis();
@@ -304,7 +304,7 @@ public class Lab4
         System.out.println("Time (in milliseconds) = " + Long.toString(stopTime-startTime));
         System.out.println("Amount of steps = " + Robot.getNumSteps());
         int s = Robot.getNumSteps();
-        System.out.println("Test 1 complete!\nBeginning test 2...");
+        System.out.println("-----------------\nTest 1 complete!\n\nBeginning test 2...\n-----------------");
         Robot.load("t5.txt");
         Robot.setDelay(1);
         startTime = System.currentTimeMillis();
@@ -312,6 +312,6 @@ public class Lab4
         stopTime = System.currentTimeMillis();
         System.out.println("Time (in milliseconds) = " + Long.toString(stopTime-startTime));
         System.out.println("Amount of steps = " + Integer.toString(Robot.getNumSteps() - s));
-        System.out.println("Test 2 complete!");
+        System.out.println("-----------------\nTest 2 complete!\n");
     }
 }
