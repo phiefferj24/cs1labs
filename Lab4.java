@@ -5,11 +5,7 @@
 public class Lab4
 {
     public static void main(String[] args) {
-        Robot.load("t5.txt");
-        Robot.setDelay(1);
-        moveTower();
-        //FastLab4.moveTower2();
-        System.out.println(Robot.getNumSteps());
+        compareTimes();
     }
     public static void loadTest1()
     {
@@ -296,5 +292,25 @@ public class Lab4
             System.out.println(x+" : " + towerTimer());
             x++;
         }
+    }
+    public static void compareTimes() {
+        System.out.println("Comparing...");
+        System.out.println("Beginning test 1...");
+        Robot.load("t5.txt");
+        Robot.setDelay(1);
+        long startTime = System.currentTimeMillis();
+        moveTower();
+        long stopTime = System.currentTimeMillis();
+        System.out.println("Time (in milliseconds) = " + Long.toString(stopTime-startTime));
+        System.out.println("Amount of steps = " + Robot.getNumSteps());
+        int s = Robot.getNumSteps();
+        System.out.println("Beginning test 2...");
+        Robot.load("t5.txt");
+        Robot.setDelay(1);
+        startTime = System.currentTimeMillis();
+        FastLab4.moveTower2();
+        stopTime = System.currentTimeMillis();
+        System.out.println("Time (in milliseconds) = " + Long.toString(stopTime-startTime));
+        System.out.println("Amount of steps = " + Integer.toString(Robot.getNumSteps() - s));
     }
 }
