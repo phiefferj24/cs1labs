@@ -304,7 +304,7 @@ public class Lab4
         System.out.println("Time (in milliseconds) = " + Long.toString(stopTime-startTime));
         System.out.println("Amount of steps = " + Robot.getNumSteps());
         int s = Robot.getNumSteps();
-        System.out.println("Beginning test 2...");
+        System.out.println("Test 1 complete!\nBeginning test 2...");
         Robot.load("t5.txt");
         Robot.setDelay(1);
         startTime = System.currentTimeMillis();
@@ -312,5 +312,6 @@ public class Lab4
         stopTime = System.currentTimeMillis();
         System.out.println("Time (in milliseconds) = " + Long.toString(stopTime-startTime));
         System.out.println("Amount of steps = " + Integer.toString(Robot.getNumSteps() - s));
+        System.out.println("Test 2 complete!");
     }
 }
