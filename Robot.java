@@ -75,25 +75,21 @@ public class Robot
                         grid[row][col] = CELL_LIGHT;
                     else
                         grid[row][col] = CELL_DARK;
-                    if (ch == 'N' || ch == 'n')
-                        robotDir = DIR_NORTH;
-                    else if (ch == 'S' || ch == 's')
-                        robotDir = DIR_SOUTH;
-                    else if (ch == 'E' || ch == 'e')
-                        robotDir = DIR_EAST;
-                    else
-                        robotDir = DIR_WEST;
+                    switch(ch) {
+                        case 'N','n': robotDir = DIR_NORTH; break;
+                        case 'E','e': robotDir = DIR_EAST; break;
+                        case 'S','s': robotDir = DIR_SOUTH; break;
+                        default: robotDir = DIR_WEST;
+                    }
                     robotRow = row;
                     robotCol = col;
                 }
-                else if (ch == 'X')
-                    grid[row][col] = CELL_WALL;
-                else if (ch == '.')
-                    grid[row][col] = CELL_LIGHT;
-                else if (ch == ':')
-                    grid[row][col] = CELL_DARK;
-                else
-                    throw new RuntimeException("Invalid character '" + ch + "' in map file \"" + mapFileName + "\"");
+                switch(ch) {
+                    case 'X': grid[row][col]=CELL_WALL; break;
+                    case '.': grid[row][col]=CELL_LIGHT; break;
+                    case ':': grid[row][col]=CELL_DARK; break;
+                    default: throw new RuntimeException("Invalid character '" + ch + "' in map file \"" + mapFileName + "\"");
+                }
             }
         }
 
@@ -132,15 +128,12 @@ public class Robot
         checkLoad();
         int row = robotRow;
         int col = robotCol;
-        if (robotDir == DIR_NORTH)
-            row--;
-        else if (robotDir == DIR_SOUTH)
-            row++;
-        else if (robotDir == DIR_EAST)
-            col++;
-        else
-            col--;
-
+        switch(robotDir) {
+            case DIR_NORTH: row--; break;
+            case DIR_SOUTH: row++; break;
+            case DIR_EAST: col++; break;
+            default: col--;
+        }
         if (!isValid(row, col))
             throw new RuntimeException("Attempt to move robot from " + locString(robotRow, robotCol) + " to invalid location " + locString(row, col));
         if (grid[row][col] == CELL_WALL)
@@ -154,14 +147,12 @@ public class Robot
     public static void turnLeft()
     {
         checkLoad();
-        if (robotDir == DIR_NORTH)
-            robotDir = DIR_WEST;
-        else if (robotDir == DIR_SOUTH)
-            robotDir = DIR_EAST;
-        else if (robotDir == DIR_EAST)
-            robotDir = DIR_NORTH;
-        else
-            robotDir = DIR_SOUTH;
+        switch (robotDir) {
+            case DIR_NORTH: robotDir = DIR_WEST; break;
+            case DIR_SOUTH: robotDir = DIR_EAST; break;
+            case DIR_EAST: robotDir = DIR_NORTH; break;
+            default: robotDir = DIR_SOUTH;
+        }
         update();
     }
 
@@ -194,15 +185,12 @@ public class Robot
         checkLoad();
         int row = robotRow;
         int col = robotCol;
-        if (robotDir == DIR_NORTH)
-            row--;
-        else if (robotDir == DIR_SOUTH)
-            row++;
-        else if (robotDir == DIR_EAST)
-            col++;
-        else
-            col--;
-
+        switch(robotDir) {
+            case DIR_NORTH: row--; break;
+            case DIR_SOUTH: row++; break;
+            case DIR_EAST: col++; break;
+            default: col--;
+        }
         return isValid(row, col) && grid[row][col] != CELL_WALL;
     }
 
@@ -255,29 +243,29 @@ public class Robot
                 {
                     int x = col * cellSize;
                     int y = row * cellSize;
-                    if (grid[row][col] == CELL_WALL)
-                        g.drawImage(WALL_IMAGE, x, y, cellSize, cellSize, null);
-                    else if (grid[row][col] == CELL_LIGHT)
-                    {
-                        g.setColor(LIGHT_COLOR);
-                        g.fillRect(x, y, cellSize, cellSize);
-                    }
-                    else if (grid[row][col] == CELL_DARK)
-                    {
-                        g.setColor(DARK_COLOR);
-                        g.fillRect(x, y, cellSize, cellSize);
+                    switch(grid[row][col]) {
+                        case CELL_WALL:
+                            g.drawImage(WALL_IMAGE, x, y, cellSize, cellSize, null);
+                            break;
+                        case CELL_LIGHT:
+                            g.setColor(LIGHT_COLOR);
+                            g.fillRect(x, y, cellSize, cellSize);
+                            break;
+                        case CELL_DARK:
+                            g.setColor(DARK_COLOR);
+                            g.fillRect(x, y, cellSize, cellSize);
+                            break;
+                        
                     }
                     if (row == robotRow && col == robotCol)
                     {
                         Image image;
-                        if (robotDir == DIR_NORTH)
-                            image = ROBOT_NORTH_IMAGE;
-                        else if (robotDir == DIR_WEST)
-                            image = ROBOT_WEST_IMAGE;
-                        else if (robotDir == DIR_EAST)
-                            image = ROBOT_EAST_IMAGE;
-                        else
-                            image = ROBOT_SOUTH_IMAGE;
+                        switch(robotDir) {
+                            case DIR_NORTH: image = ROBOT_NORTH_IMAGE; break;
+                            case DIR_SOUTH: image = ROBOT_SOUTH_IMAGE; break;
+                            case DIR_EAST: image = ROBOT_EAST_IMAGE; break;
+                            default: image = ROBOT_WEST_IMAGE;
+                        }
                         g.drawImage(image, x, y, cellSize, cellSize, null);
                     }
                     g.setColor(Color.BLACK);
