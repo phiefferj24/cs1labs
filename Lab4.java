@@ -5,7 +5,7 @@
 public class Lab4
 {
     public static void main(String[] args) {
-        compareTimes();
+        System.out.println(getAverage());
     }
     public static void loadTest1()
     {
@@ -280,6 +280,8 @@ public class Lab4
         }
     }
     public static long towerTimer() {
+        Robot.load("test1.txt");
+        Robot.setDelay(1);
         long startTime = System.currentTimeMillis();
         moveTower();
         long stopTime = System.currentTimeMillis();
@@ -313,5 +315,17 @@ public class Lab4
         System.out.println("Time (in milliseconds) = " + Long.toString(stopTime-startTime));
         System.out.println("Amount of steps = " + Integer.toString(Robot.getNumSteps() - s));
         System.out.println("-----------------\nTest 2 complete!\n");
+    }
+    public static long getAverage() {
+        Robot.load("test1.txt");
+        Robot.setDelay(1);
+        long l = 0, amt = 4;
+        int x = (int)amt;
+        while (x > 0) {
+            l += towerTimer();
+            x--;
+        }
+        l /= amt;
+        return l;
     }
 }

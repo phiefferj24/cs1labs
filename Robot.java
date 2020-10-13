@@ -35,9 +35,9 @@ public class Robot
     private static final Color DARK_COLOR = new Color(150, 110, 80);
 
     //hide constructor
-    private Robot()
+    /*private Robot()
     {
-    }
+    }*/
 
     public static void load(String mapFileName)
     {
@@ -76,9 +76,9 @@ public class Robot
                     else
                         grid[row][col] = CELL_DARK;
                     switch(ch) {
-                        case 'N','n': robotDir = DIR_NORTH; break;
-                        case 'E','e': robotDir = DIR_EAST; break;
-                        case 'S','s': robotDir = DIR_SOUTH; break;
+                        case 'N': case 'n': robotDir = DIR_NORTH; break;
+                        case 'E': case 'e': robotDir = DIR_EAST; break;
+                        case 'S': case 's': robotDir = DIR_SOUTH; break;
                         default: robotDir = DIR_WEST;
                     }
                     robotRow = row;
@@ -88,6 +88,7 @@ public class Robot
                     case 'X': grid[row][col]=CELL_WALL; break;
                     case '.': grid[row][col]=CELL_LIGHT; break;
                     case ':': grid[row][col]=CELL_DARK; break;
+                    case 'N': case 'n': case 'E': case 'e':case 'S': case 's': case 'W': case 'w': break;
                     default: throw new RuntimeException("Invalid character '" + ch + "' in map file \"" + mapFileName + "\"");
                 }
             }
